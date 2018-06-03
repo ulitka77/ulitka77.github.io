@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+	<link href="style.css" rel="stylesheet">
+	<script type="text/javascript">
+function insRow()
+{
+var x=document.getElementById('myTable').insertRow(0);
+var y=x.insertCell(0);
+var z=x.insertCell(1);
+y.innerHTML="новая ячейка 1";
+z.innerHTML="новая ячейка 2";
+}
+</script>
+</head>
+<body>
+<div id="table_wrapper">
+  <table id="table" border="1">
+      <tr>
+          <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td  onclick="insRow()" style="cursor: pointer" onmouseover="this.style.background = 'red'" onmouseout="this.style.background = ''"></td>
+      </tr>
+      <tr>
+          <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+      </tr>
+      <tr>
+          <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+      </tr>
+	  <tr>
+          <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+      </tr>
+	  <tr>
+          <td style="cursor: pointer" onmouseover="this.style.background = 'red'" onmouseout="this.style.background = ''"></td>
+	</tr>
+  </table>
+  
+  <span id="add_col">+</span>
+   </div>
+  <script type="text/javascript">
+  function add() {
+        var trArray = table.getElementsByTagName('tr');
+        for (var i = 0, dlina = trArray.length; i < dlina; i++)
+            trArray[i].insertCell(0);
+    }
+	</script>
+  <script type="text/javascript">
+      function table() {
+          var table=document.getElementById('table').getElementsByTagName('td'),
+              innerhtml='';
+          for(var i in table) {
+              table[i].onmouseover=function(event) {
+                  //event=fixEvent(event);
+                  innerhtml=event.target.innerHTML;
+                  event.target.innerHTML='';
+              };
+              table[i].onmouseout=function(event) {
+                  //event=fixEvent(event);
+                  event.target.innerHTML=innerhtml;
+              };
+          }
+      }
+      table();
+    </script>
+	<script>
+	var table = document.getElementById('table');
+        table.onclick = function(e){
+         var target = e.target;
+           while(target.nodeName !== 'TD') {
+             target = target.parentNode;
+           }
+           if(target.nodeName !== 'TD'){
+             return;
+          }
+              var parent = target.parentNode,
+                  tdLength = parent.childNodes.length;   
+              parent.parentNode.removeChild(parent);
+              target.rel = 'active';
+              for(var i = 0; i < tdLength; i++) {
+                if(parent.children[i].rel === 'active') {
+                    removeTd(i);
+                    break;
+                }
+             }
+           }
+         function removeTd(num) {
+           var tr = table.querySelectorAll('tr'),
+              trLength = tr.length;
+            for(var i = 0; i < trLength; i++) {
+              tr[i].removeChild(tr[i].children[num]);
+           }
+        }
+	</script>
+</body>
+</html>
