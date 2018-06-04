@@ -1,0 +1,20 @@
+table {
+    border-collapse: separate; 
+    background: #87CEFA; 
+    border: 3px solid #B0E0E6; 
+	width: 300px;
+	height: 300px;
+	float: left;
+	   }
+
+ #rightAdd {
+	 background: #fc0; 
+	 height: 50px;
+	 width: 50px;
+ }
+    td {
+    padding: 5px; 
+    border: 1px solid #fff; 
+	height: 50px;
+	width: 50px;
+	}
