@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title>Ex</title>
 	<link href="style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src = "script.js"></script>
 	</head>
 	<body>
-	<div id="table">
-	<table border="0,5">
+	<div >
+	<table id="myTable" align="center" >
       <tr>
           <td></td>
 		  <td></td>
@@ -28,20 +29,13 @@
 		  <td></td>
       </tr>
 	  <tr>
-          <td></td>
+          <td>1</td>
 		  <td></td>
 		  <td></td>
 		  <td></td>
       </tr>
   </table>
-	</div>
-	
-	<div id="rightAdd">
-	<span>+</span>
-	</div>
-	
-	<div id="downAdd">
-	
-	</div>
+<div class="add" onclick="add('myTable');return false;"><span class="plus"><b>+</b></span></div>
+<div class="add1" onclick="addRow('myTable');return false;"><span class="plus"><b>+</b></span></div>
 		</body>
 </html>
